@@ -1,0 +1,7 @@
+<p>index</p>
+<% @books.each do  |book| %>
+  <p><%= book.author %><p>
+  <% book.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+<% end %>

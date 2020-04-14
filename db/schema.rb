@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_102229) do
+ActiveRecord::Schema.define(version: 2020_04_14_181623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_102229) do
     t.string "drawer"
     t.date "release_date"
     t.string "collection"
-    t.bigint "review_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["review_id"], name: "index_books_on_review_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -65,10 +63,10 @@ ActiveRecord::Schema.define(version: 2020_04_14_102229) do
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "content"
-    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.bigint "book_id"
+    t.index ["book_id"], name: "index_reviews_on_book_id"
   end
 
   create_table "sessions", force: :cascade do |t|

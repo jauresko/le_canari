@@ -7,7 +7,6 @@ class CreateBooks < ActiveRecord::Migration[6.0]
       t.string :drawer
       t.date :release_date
       t.string :collection
-      t.references :review
 
       t.timestamps
     end
