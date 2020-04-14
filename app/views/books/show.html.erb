@@ -1,0 +1,19 @@
+<h1><%= @book.name %> </h1>
+<h2>
+  <%= pluralize @book.reviews.size, "review" %>
+</h2>
+
+<div id="reviews">
+  <% if @book.reviews.blank? %>
+    Be the first to leave a review for <%= @book.name %>
+  <% else %>
+    <% @book.reviews.each do |review| %>
+      <p><%= review.content %></p>
+    <% end %>
+  <% end %>
+</div>
+
+<%= simple_form_for([ @book, @review ], remote: true) do |f| %>
+  <%= f.input :content, as: :text %>
+  <%= f.button :submit %>
+<% end %>

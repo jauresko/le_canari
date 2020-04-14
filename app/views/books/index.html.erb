@@ -3,5 +3,6 @@
   <p><%= book.author %><p>
   <% book.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%= link_to 'details ' ,book_path(book) %>
   <% end %>
 <% end %>

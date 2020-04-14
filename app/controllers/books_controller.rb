@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_warrior, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, :only => :index
   skip_before_action :authenticate_user!, :only => :show
 
@@ -9,6 +9,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @review = Review.new
   end
 
   def new
