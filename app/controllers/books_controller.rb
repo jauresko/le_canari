@@ -5,15 +5,17 @@ class BooksController < ApplicationController
   skip_before_action :authenticate_user!, :only => :show
 
   def index
-    @books = Book.all
+    @books = policy_scope(Book).order(created_at: :desc)
   end
 
   def show
     @review = Review.new
+    authorize(@review)
   end
 
   def new
     @book = Book.new
+    authorize(@book)
   end
 
   def create
@@ -23,12 +25,12 @@ class BooksController < ApplicationController
     else
       render :new
     end
+    authorize(@book)
   end
 
   def edit
     @book.update(book_params)
     redirect_to book_path(@book)
-
   end
 
   def detroy
@@ -40,6 +42,7 @@ class BooksController < ApplicationController
 
   def set_book
     @book = Book.find(params[:id])
+    authorize(@book)
   end
 
 
