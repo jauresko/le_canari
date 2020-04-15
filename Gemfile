@@ -33,6 +33,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'pundit'
+gem 'rails_admin', '~> 2.0'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'pry-byebug'

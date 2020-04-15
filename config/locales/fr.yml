@@ -1,0 +1,8 @@
+fr:
+  hello: "Hello world"
+  title: "Lisez et échangez avec notre communauté"
+  subtitle: "Retrouvez vos BD préférées ici"
+  getStart: "Commencer maintenant"
+  navbar:
+    login: "Se connecter"
+    sign_up: "S'inscrire"

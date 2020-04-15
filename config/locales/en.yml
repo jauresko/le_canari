@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  title: "Read and Share with our community "
+  subtitle: "The place to read your favorite comics"
+  getStart: "Get started"
+  navbar:
+    login: "Login"
+    sign_up: "Sign up"
