@@ -1,8 +1,12 @@
-<p>index</p>
-<% @books.each do  |book| %>
-  <p><%= book.author %><p>
-  <% book.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <%= link_to 'details ' ,book_path(book) %>
-  <% end %>
-<% end %>
+<div class="slider">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @books.each do |book| %>
+        <div class="swiper-slide"><%= cl_image_tag book.cover.key, height: 250, width: 200,crop: :fill %></div>
+      <% end %>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+

@@ -35,5 +35,7 @@ document.addEventListener('turbolinks:load', () => {
 
 
 import { initStarRating } from '../plugins/init_star_rating';
+import '../plugins/carousel';
 
 initStarRating();
+

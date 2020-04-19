@@ -3,5 +3,6 @@
   <%= f.input :name %>
   <%= f.input :author %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :cover, as: :file %>
   <%= f.button :submit, "Submit" %>
 <% end %>
