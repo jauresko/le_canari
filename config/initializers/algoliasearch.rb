@@ -1,10 +1,10 @@
 AlgoliaSearch.configuration = {
-  application_id: 'QDUXU5A7T5',
-  api_key: 'b258ebbd0795e40de3eb8427c50a2d04'
+  application_id: ENV['ALGOLIA_SEARCH_APPLICATION_ID'],
+  api_key: ENV['ALGOLIA_SEARCH_API_KEY']
 }
 
-client = Algolia::Client.new(application_id: 'QDUXU5A7T5',
-                    api_key:        'b258ebbd0795e40de3eb8427c50a2d04')
+client = Algolia::Client.new(application_id: ENV['ALGOLIA_SEARCH_APPLICATION_ID'],
+                    api_key:        ENV['ALGOLIA_SEARCH_API_KEY'])
 index = client.init_index('book')
 
 index.set_settings(

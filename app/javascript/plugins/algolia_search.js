@@ -2,7 +2,8 @@ import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
 import { searchBox, hits } from 'instantsearch.js/es/widgets';
 
-const searchClient = algoliasearch('QDUXU5A7T5', '4b3d7f3ed4513551f9912570b67a5d44');
+const searchClient = algoliasearch(ENV['ALGOLIA_SEARCH_APPLICATION_ID']
+, ENV['ALGOLIA_SEARCH_API_KEY']);
 
 const search = instantsearch({
   indexName: 'Book',
