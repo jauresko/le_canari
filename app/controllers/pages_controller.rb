@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
 
   def home
+    @books = Book.last(20)
   end
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /fr|es/ do
     root to: 'pages#home'
     resources :books do
+      resources :episodes
       resources :sessions
       resources :reviews, only: :create
     end

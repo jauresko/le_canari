@@ -36,6 +36,15 @@ document.addEventListener('turbolinks:load', () => {
 
 import { initStarRating } from '../plugins/init_star_rating';
 import '../plugins/carousel';
+import '../plugins/algolia_search';
+
+$('.buy').click(function () {
+  $('.bottom').addClass("clicked");
+});
+
+$('.remove').click(function () {
+  $('.bottom').removeClass("clicked");
+});
 
 initStarRating();
 

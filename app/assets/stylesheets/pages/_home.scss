@@ -1,1 +1,27 @@
 // Specific CSS for your home-page
+.bubble {
+  height: 124px;
+  color: $canari-1
+}
+
+.header-container {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px
+}
+
+.header-container p {
+  color: $canari-1
+}
+
+.header {
+  position: relative;
+  .news {
+    position: absolute
+  }
+}
+
+
+.filter-text {
+  filter: drop-shadow(2px 4px 6px black)
+}

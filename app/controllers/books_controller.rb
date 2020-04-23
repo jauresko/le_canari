@@ -1,11 +1,11 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, :only => :index
-  skip_before_action :authenticate_user!, :only => :show
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @books = policy_scope(Book).order(created_at: :desc)
+    Book.reindex
   end
 
   def show
@@ -47,6 +47,6 @@ class BooksController < ApplicationController
 
 
   def book_params
-    params.require(:book).permit(:name, :editor, :author, :drawer, :release_date, :collection, :cover, photos: [])
+    params.require(:book).permit(:name, :editor, :author, :drawer, :release_date, :collection, :cover, :category)
   end
 end

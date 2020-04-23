@@ -1,3 +1,4 @@
+
 import "jquery-bar-rating";
 // <-- if you're NOT using a Le Wagon template (cf jQuery section)
 

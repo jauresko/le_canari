@@ -1,7 +1,82 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1514329926535-7f6dbfbfb114?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80')">
+<!-- <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1514329926535-7f6dbfbfb114?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80')">
   <div class="container">
     <h1><%= t('title') %></h1>
     <p><%= t('subtitle') %></p>
     <a class="btn btn-banner" href="/books"><%= t('getStart') %></a>
   </div>
+</div> -->
+
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images8.alphacoders.com/669/669579.jpg')">
+        <div class="carousel-caption d-none d-md-block filter-text">
+          <h1><%= t('title') %></h1>
+          <p><%= t('subtitle') %></p>
+          <a class="btn btn-banner" href="/books"><%= t('getStart') %></a>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://vistapointe.net/images/dc-comics-6.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h1><%= t('title') %></h1>
+          <p><%= t('subtitle') %></p>
+          <a class="btn btn-banner" href="/books"><%= t('getStart') %></a>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://vistapointe.net/images/dc-comics-9.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+         <h1><%= t('title') %></h1>
+          <p><%= t('subtitle') %></p>
+          <a class="btn btn-banner" href="/books"><%= t('getStart') %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="home-title">
+  <p><i class="fas fa-newspaper"></i> <%= t("news") %></p>
+</div>
+
+<div class="cards">
+  <% @books.each do |book| %>
+    <%= link_to book_path(book) do %>
+      <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dwustkks4/image/upload/<%= book.cover.key%>')">
+        <div class="book-details filter-text">
+          <p><%= book.name %></p>
+          <div class="book-category">
+            <p><%= book.category.capitalize() %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+<div class="home-title">
+  <p><i class="fas fa-poll"></i> <%= t("popularity") %></p>
+</div>
+
+<div class="cards">
+  <% @books.each do |book| %>
+    <%= link_to book_path(book) do %>
+      <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dwustkks4/image/upload/<%= book.cover.key%>')">
+        <div class="book-details filter-text">
+          <p><%= book.name %></p>
+          <div class="book-category">
+            <p><%= book.category.capitalize() %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>

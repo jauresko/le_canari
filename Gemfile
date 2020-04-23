@@ -36,6 +36,8 @@ gem 'pundit'
 gem 'rails_admin', '~> 2.0'
 gem 'rails-i18n'
 gem 'devise-i18n', '~> 1.2'
+gem 'pg_search', '~> 2.3.0'
+gem "algoliasearch-rails"
 
 group :development, :test do
   gem 'pry-byebug'

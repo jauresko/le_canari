@@ -2,12 +2,24 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <% @books.each do |book| %>
-        <div class="swiper-slide"><%= cl_image_tag book.cover.key, height: 250, width: 200,crop: :fill %></div>
+        <div class="swiper-slide">
+          <%= link_to book_path(book) do %>
+            <%= cl_image_tag book.cover.key, height: 250, width: 200,crop: :fill %>
+          <% end %>
+        </div>
       <% end %>
     </div>
     <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-scrollbar"></div>
   </div>
 </div>
 
+<div class="ais-InstantSearch">
+
+  <div class="right-panel">
+    <div id="searchbox"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+  </div>
+</div>
 
