@@ -14,3 +14,4 @@ category = ["action", "adventure", "humour", "magazine"]
   book = Book.create!(name: Faker::DcComics.title, category: category.sample)
   book.cover.attach(io: URI.open(covers.sample), filename: 'nes.png', content_type: 'image/png')
 end
+

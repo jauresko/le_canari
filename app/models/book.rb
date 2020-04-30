@@ -13,5 +13,8 @@ class Book < ApplicationRecord
   #   }
   algoliasearch do
     attribute :name, :editor, :author, :drawer, :cover
+    attribute :cover do
+      { key: "https://res.cloudinary.com/dwustkks4/image/upload/#{cover.key}" }
+    end
   end
 end

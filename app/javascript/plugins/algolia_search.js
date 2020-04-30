@@ -2,8 +2,7 @@ import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
 import { searchBox, hits } from 'instantsearch.js/es/widgets';
 
-const searchClient = algoliasearch(ENV['ALGOLIA_SEARCH_APPLICATION_ID']
-, ENV['ALGOLIA_SEARCH_API_KEY']);
+const searchClient = algoliasearch('QDUXU5A7T5', '4b3d7f3ed4513551f9912570b67a5d44');
 
 const search = instantsearch({
   indexName: 'Book',
@@ -20,7 +19,7 @@ search.addWidgets([
     templates: {
       item: `
         <div>
-          <img src="{{cover}}" align="left" alt="{{name}}" />
+          <img src="{{cover.key}}" align="left" alt="{{name}}" />
           <div class="hit-name">
             {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
           </div>

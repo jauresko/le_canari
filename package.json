@@ -10,7 +10,7 @@
     "algoliasearch": "^4.2.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.4.1",
-    "instantsearch.js": "^4.4.0",
+    "instantsearch.js": "^4.4.1",
     "jquery": "3.4.1",
     "jquery-bar-rating": "^1.2.2",
     "mdx": "^0.3.1",
