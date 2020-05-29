@@ -37,6 +37,8 @@ document.addEventListener('turbolinks:load', () => {
 import { initStarRating } from '../plugins/init_star_rating';
 import '../plugins/carousel';
 import '../plugins/algolia_search';
+import '../plugins/paydunya';
+import '../plugins/check_payment';
 
 $('.buy').click(function () {
   $('.bottom').addClass("clicked");

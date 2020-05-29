@@ -1,7 +1,27 @@
-<h1><%= @book.name %> </h1>
+<h2><%= @book.name %> </h2>
 <h2>
   <%= pluralize @book.reviews.size, "review" %>
 </h2>
+
+<div id="episodes">
+  <% @book.episodes.each do |episode| %>
+    <% if current_user.sessions == [] %>
+      <%= simple_form_for([ @book, episode, @session ], html: { class: "session_form" }, remote: true) do |f| %>
+        <%= f.button :submit, episode.title %>
+      <% end %>
+    <% else %>
+      <% current_user.sessions.each do |session| %>
+        <% if session.episode != episode %>
+          <%= simple_form_for([ @book, episode, @session ], html: { class: "session_form" }, remote: true) do |f| %>
+            <%= f.button :submit, episode.title %>
+          <% end %>
+        <% else %>
+          <%= link_to episode.title, book_episode_path(@book,episode) %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
 
 <div id="reviews">
   <% if @book.reviews.blank? %>

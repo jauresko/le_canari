@@ -5,6 +5,9 @@ class BookPolicy < ApplicationPolicy
     end
   end
 
+  def payment?
+    return true
+  end
 
   def show?
     return true

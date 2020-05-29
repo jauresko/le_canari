@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_173338) do
+ActiveRecord::Schema.define(version: 2020_05_27_113158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,13 +46,17 @@ ActiveRecord::Schema.define(version: 2020_04_23_173338) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "category"
+    t.string "cover"
   end
 
   create_table "episodes", force: :cascade do |t|
     t.string "title"
     t.integer "episode_number"
+    t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "pages"
+    t.index ["book_id"], name: "index_episodes_on_book_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -81,10 +85,10 @@ ActiveRecord::Schema.define(version: 2020_04_23_173338) do
 
   create_table "sessions", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_sessions_on_book_id"
+    t.bigint "episode_id"
+    t.index ["episode_id"], name: "index_sessions_on_episode_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
@@ -102,7 +106,9 @@ ActiveRecord::Schema.define(version: 2020_04_23_173338) do
     t.string "phone_number"
     t.boolean "admin", default: false
     t.boolean "company", default: false
-    t.integer "coins"
+    t.integer "coins", default: 0
+    t.string "authentication_token", limit: 30
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

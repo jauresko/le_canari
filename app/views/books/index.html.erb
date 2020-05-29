@@ -1,3 +1,13 @@
+
+<%= form_tag books_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="slider">
   <div class="swiper-container">
     <div class="swiper-wrapper">
@@ -13,14 +23,3 @@
     <div class="swiper-scrollbar"></div>
   </div>
 </div>
-
-<div class="ais-InstantSearch">
-  <h1>InstantSearch.js e-commerce demo</h1>
-
-  <div class="right-panel">
-    <div id="searchbox"></div>
-    <div id="hits"></div>
-    <div id="pagination"></div>
-  </div>
-</div>
-

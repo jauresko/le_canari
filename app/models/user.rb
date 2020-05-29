@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  acts_as_token_authenticatable
   has_many :sessions
   has_many :books
+  has_many :episodes
   has_many :requests
   has_many :reviews
   has_one_attached :photo
