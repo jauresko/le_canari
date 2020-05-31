@@ -46,37 +46,40 @@
   <p><i class="fas fa-newspaper"></i> <%= t("news") %></p>
 </div>
 
-<div class="cards">
-  <% @books.each do |book| %>
-    <%= link_to book_path(book) do %>
-      <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dwustkks4/image/upload/<%= book.cover.key%>')">
-        <div class="book-details filter-text">
-          <p><%= book.name %></p>
-          <div class="book-category">
-            <p><%= book.category.capitalize() %></p>
-          </div>
+<div class="slider">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @books.each do |book| %>
+        <div class="swiper-slide">
+          <%= link_to book_path(book) do %>
+            <%= cl_image_tag book.cover.key, height: 250, width: 200,crop: :fill %>
+          <% end %>
         </div>
-      </div>
-    <% end %>
-  <% end %>
+      <% end %>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-scrollbar"></div>
+  </div>
 </div>
+
 
 
 <div class="home-title">
   <p><i class="fas fa-poll"></i> <%= t("popularity") %></p>
 </div>
 
-<div class="cards">
-  <% @books.each do |book| %>
-    <%= link_to book_path(book) do %>
-      <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dwustkks4/image/upload/<%= book.cover.key%>')">
-        <div class="book-details filter-text">
-          <p><%= book.name %></p>
-          <div class="book-category">
-            <p><%= book.category.capitalize() %></p>
-          </div>
+<div class="slider">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @books.each do |book| %>
+        <div class="swiper-slide">
+          <%= link_to book_path(book) do %>
+            <%= cl_image_tag book.cover.key, height: 250, width: 200,crop: :fill %>
+          <% end %>
         </div>
-      </div>
-    <% end %>
-  <% end %>
+      <% end %>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-scrollbar"></div>
+  </div>
 </div>

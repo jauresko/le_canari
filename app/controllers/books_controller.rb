@@ -1,15 +1,19 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = policy_scope(Book).order(created_at: :desc)
-    Book.reindex
+    if params[:query].present?
+      @books = policy_scope(Book).search(params[:query])
+    else
+      @books = policy_scope(Book).order(created_at: :desc)
+    end
   end
 
   def show
     @review = Review.new
+    @session = Session.new
     authorize(@review)
   end
 
