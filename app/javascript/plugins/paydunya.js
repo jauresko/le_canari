@@ -1,10 +1,10 @@
 const paydunya = require('paydunya');
 
 const setup = new paydunya.Setup({
-  masterKey: '5jU04I4k-7sjq-S0rT-ht9y-67CJpBHgG5Mn',
-  privateKey: 'test_private_qY6R86mRVYT7IF37jJ7HeTxNWR2',
-  publicKey: 'test_public_RO6QD4yESIHwvd1bKJovTju2wCH',
-  token: '3IfvcYtRApVpTQJciugw',
+  masterKey: `${process.env.PAYDUNYA_MASTER_KEY}`,
+  privateKey: `${process.env.PAYDUNYA_PRIVATE_KEY}`,
+  publicKey: `${process.env.PAYDUNYA_PUBLIC_KEY}`,
+  token: `${process.env.PAYDUNYA_TOKEN}`,
   mode: 'test' // Optionnel. Utilisez cette option pour les paiements tests.
 });
 
