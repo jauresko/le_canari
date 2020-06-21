@@ -18,6 +18,8 @@ const store = new paydunya.Store({
   returnURL: 'http://localhost:3000/account_credit'
 });
 
+if(document.getElementById('token-paydunya')) {
+
 const token = document.getElementById('token-paydunya').innerText;
 const id = document.getElementById('user-id').innerText;
 console.log(id);
@@ -69,4 +71,5 @@ invoice.confirm(token)
   .catch(function (e) {
     console.log(e);
   });
+}
 

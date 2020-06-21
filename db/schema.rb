@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_113158) do
+ActiveRecord::Schema.define(version: 2020_06_09_185956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,10 @@ ActiveRecord::Schema.define(version: 2020_05_27_113158) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "category"
-    t.string "cover"
+    t.string "synopsis"
+    t.integer "sum_rating", default: 0
+    t.integer "rating_number", default: 0
+    t.integer "average_rating", default: 0
   end
 
   create_table "episodes", force: :cascade do |t|
@@ -55,7 +58,6 @@ ActiveRecord::Schema.define(version: 2020_05_27_113158) do
     t.bigint "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "pages"
     t.index ["book_id"], name: "index_episodes_on_book_id"
   end
 

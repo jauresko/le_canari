@@ -1,0 +1,22 @@
+@media screen and (min-width: 992px) {
+
+  .book-container {
+    padding: 8vh;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    margin: 8vh;
+  }
+
+  .book-show-details {
+    margin-left: 1vh
+  }
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .book-container {
+    align-items: center;
+  }
+}

@@ -1,0 +1,5 @@
+<div class="reader">
+  <% @episode.pages.each do |page| %>
+    <%= cl_image_tag page.key, height: 300, width: 400, crop: :fill%>
+  <% end %>
+</div>

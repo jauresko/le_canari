@@ -1,13 +1,13 @@
-
-<%= form_tag books_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
+<div class="d-flex flex-column align-items-center mb-5">
+  <%= form_tag books_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control form-search col-xl-12 col-lg-12 col-md-12 col-sm-12 form-index mb-3",
+      placeholder: "Find"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 <div class="slider">
   <div class="swiper-container">
     <div class="swiper-wrapper">

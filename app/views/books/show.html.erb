@@ -1,42 +1,70 @@
-<h2><%= @book.name %> </h2>
-<h2>
+<div class="book-container">
+  <%= cl_image_tag @book.cover.key, height: 300, width: 250,crop: :fill %>
+  <div class="book-show-details">
+    <h2><%= @book.name %> </h2>
+    <p style="color: green"><%= @book.category %></p>
+    <p><%= @book.editor %> / <%= @book.author %> / <%= @book.drawer %></p>
+    <p><%= @book.synopsis %></p>
+  </div>
+</div>
+
+<h2 class="text-center"><i class="fas fa-list-ul"></i> <%= t("Episodes") %></h2>
+<div class="slider">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @book.episodes.each do |episode| %>
+        <div class="swiper-slide" style="background: transparent">
+          <%= link_to book_episode_path(@book, episode) do %>
+            <%= cl_image_tag @book.cover.key, height: 250, width: 200,crop: :fill %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <!-- Add Pagination -->
+  <div class="swiper-scrollbar"></div>
+  </div>
+</div>
+
+
+
+
+<h2 class="text-center">
   <%= pluralize @book.reviews.size, "review" %>
+  <%= @book.average_rating %>
 </h2>
 
-<div id="episodes">
-  <% @book.episodes.each do |episode| %>
-    <% if current_user.sessions == [] %>
-      <%= simple_form_for([ @book, episode, @session ], html: { class: "session_form" }, remote: true) do |f| %>
-        <%= f.button :submit, episode.title %>
-      <% end %>
-    <% else %>
-      <% current_user.sessions.each do |session| %>
-        <% if session.episode != episode %>
-          <%= simple_form_for([ @book, episode, @session ], html: { class: "session_form" }, remote: true) do |f| %>
-            <%= f.button :submit, episode.title %>
-          <% end %>
-        <% else %>
-          <%= link_to episode.title, book_episode_path(@book,episode) %>
-        <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
+
 
 <div id="reviews">
   <% if @book.reviews.blank? %>
     Be the first to leave a review for <%= @book.name %>
   <% else %>
     <% @book.reviews.each do |review| %>
-      <p><%= review.content %></p>
-      <p><%= review.rating %></p>
-      <p><%= review.user.username if review.user %></p>
+    <div class="review">
+      <%= cl_image_tag review.user.photo.key, class: "avatar"%>
+      <div class="review-content">
+        <div class="star-display ">
+          <% review.rating.times do  %>
+            <%= image_tag('star.svg') %>
+          <% end %>
+        </div>
+        <p><%= review.content %></p>
+      </div>
+    </div>
     <% end %>
   <% end %>
 </div>
 
-<%= simple_form_for([ @book, @review ], html: { class: "review_form" }, remote: true) do |f| %>
-  <%= f.input :content, as: :text %>
-  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6 col-md-6 col-12 text-center">
+      <%= simple_form_for([ @book, @review ], html: { class: "review_form" }, remote: true) do |f| %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+        <%= f.input :content, as: :text %>
+        <%= f.button :submit %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
