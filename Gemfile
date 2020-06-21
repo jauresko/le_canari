@@ -20,6 +20,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 gem 'cloudinary'
+
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
@@ -38,6 +40,7 @@ gem 'rails_admin', '~> 2.0'
 gem 'rails-i18n'
 gem 'devise-i18n', '~> 1.2'
 gem 'simple_token_authentication'
+
 
 
 group :development, :test do

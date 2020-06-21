@@ -8,4 +8,39 @@
 @import "carousel";
 @import "bubble";
 @import "cards";
+@import "form";
+@import "upload_image_button";
 
+.canari-container {
+  min-height: 87vh;
+  margin-bottom: 20px;
+}
+
+body {
+  background-color: #141414;
+  color: white;
+}
+
+h1 {
+  color: $canari-2
+}
+
+h2 {
+  color: $canari-2
+}
+
+.canari-reader {
+  background: white;
+}
+
+p {
+  color: white
+}
+
+a {
+  color: white
+}
+
+h3 {
+  color: $canari-2
+}

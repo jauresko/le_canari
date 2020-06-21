@@ -1,6 +1,6 @@
 .navbar-canari {
   justify-content: space-between;
-  background: white;
+  background: #141414;
   box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
 }
 
@@ -14,4 +14,34 @@
 
 .canari-color img {
   color: $canari-1
+}
+
+.navbar-canari-reader {
+  justify-content: space-between;
+  background: #202124;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
+}
+
+.navbar-canari-reader .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-canari-reader .navbar-brand img {
+  width: 40px;
+}
+
+.reader {
+  display: grid;
+  justify-content: center;
+}
+
+.fa-1x {
+font-size: 1.5rem;
+}
+.navbar-toggler.toggler-example {
+cursor: pointer;
+}
+
+.dark-amber-text {
+color: #ff6f00;
 }

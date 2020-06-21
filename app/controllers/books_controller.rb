@@ -14,7 +14,6 @@ class BooksController < ApplicationController
   def show
     @review = Review.new
     @session = Session.new
-    authorize(@review)
   end
 
   def new

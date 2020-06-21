@@ -82,6 +82,7 @@
   border-color: $canari-1;
   transform: scale(1.05);
   filter: brightness(130%);
+  overflow: hidden;
 }
 
 .cards a:hover {

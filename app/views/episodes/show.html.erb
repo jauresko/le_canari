@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <% @episode.pages.each do |page| %>
+      <div class="page col-xl-12 col-lg-12 col-md-12 col-12">
+        <%= cl_image_tag page.key, class: "w-100"%>
+      </div>
+    <% end %>
+  </div>
+</div>

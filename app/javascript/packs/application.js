@@ -34,7 +34,7 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 
-import { initStarRating } from '../plugins/init_star_rating';
+import '../plugins/init_star_rating';
 import '../plugins/carousel';
 import '../plugins/algolia_search';
 import '../plugins/paydunya';
@@ -48,5 +48,12 @@ $('.remove').click(function () {
   $('.bottom').removeClass("clicked");
 });
 
-initStarRating();
+const br = document.querySelector('.br-widget')
+
+if(br) {
+  br.classList.add("d-flex");
+  br.classList.add("justify-content-center")
+}
+
+
 

@@ -6,47 +6,12 @@
   </div>
 </div> -->
 
-<header>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images8.alphacoders.com/669/669579.jpg')">
-        <div class="carousel-caption d-none d-md-block filter-text">
-          <h1><%= t('title') %></h1>
-          <p><%= t('subtitle') %></p>
-          <a class="btn btn-banner" href="/books"><%= t('getStart') %></a>
-        </div>
-      </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://vistapointe.net/images/dc-comics-6.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          <h1><%= t('title') %></h1>
-          <p><%= t('subtitle') %></p>
-          <a class="btn btn-banner" href="/books"><%= t('getStart') %></a>
-        </div>
-      </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://vistapointe.net/images/dc-comics-9.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-         <h1><%= t('title') %></h1>
-          <p><%= t('subtitle') %></p>
-          <a class="btn btn-banner" href="/books"><%= t('getStart') %></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
 
 <div class="home-title">
-  <p><i class="fas fa-newspaper"></i> <%= t("news") %></p>
+  <h1><%= t("title") %></h1>
 </div>
 
-<div class="slider">
+<!-- <div class="slider">
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <% @books.each do |book| %>
@@ -56,13 +21,23 @@
           <% end %>
         </div>
       <% end %>
-    </div>
+    </div> -->
     <!-- Add Pagination -->
-    <div class="swiper-scrollbar"></div>
+  <!--   <div class="swiper-scrollbar"></div>
   </div>
+</div> -->
+
+<div class="cards">
+  <% @books.each do |book| %>
+    <div class="card-home">
+      <%= link_to book_path(book) do %>
+        <%= cl_image_tag book.cover.key, height: 250, width: 200,crop: :fill %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
-
+<!--
 
 <div class="home-title">
   <p><i class="fas fa-poll"></i> <%= t("popularity") %></p>
@@ -78,8 +53,8 @@
           <% end %>
         </div>
       <% end %>
-    </div>
+    </div> -->
     <!-- Add Pagination -->
-    <div class="swiper-scrollbar"></div>
+  <!--   <div class="swiper-scrollbar"></div>
   </div>
-</div>
+</div> -->
