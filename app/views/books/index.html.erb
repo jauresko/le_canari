@@ -1,4 +1,4 @@
-<div class="d-flex flex-column align-items-center mb-5">
+<!-- <div class="d-flex flex-column align-items-center mb-5">
   <%= form_tag books_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
@@ -7,19 +7,15 @@
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
-</div>
-<div class="slider">
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <% @books.each do |book| %>
-        <div class="swiper-slide">
-          <%= link_to book_path(book) do %>
-            <%= cl_image_tag book.cover.key, height: 250, width: 200,crop: :fill %>
-          <% end %>
-        </div>
+</div> -->
+
+<h2 class="text-center" style="font-size: 5rem"> <%= t("library") %></h2>
+<div class="cards">
+  <% @books.each do |book| %>
+    <div class="card-home">
+      <%= link_to book_path(book) do %>
+        <%= cl_image_tag book.cover.key, height: 250, width: 200,crop: :fill %>
       <% end %>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-scrollbar"></div>
-  </div>
+  <% end %>
 </div>

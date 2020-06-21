@@ -9,21 +9,34 @@
 </div>
 
 <h2 class="text-center"><i class="fas fa-list-ul"></i> <%= t("Episodes") %></h2>
-<div class="slider">
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <% @book.episodes.each do |episode| %>
-        <div class="swiper-slide" style="background: transparent">
-          <%= link_to book_episode_path(@book, episode) do %>
-            <%= cl_image_tag @book.cover.key, height: 250, width: 200,crop: :fill %>
-          <% end %>
-        </div>
-      <% end %>
+<% if @book.episodes.count < 4 %>
+  <div class="cards">
+    <% @book.episodes.each do |episode| %>
+      <div class="card-home justify-content-center">
+        <%= link_to book_episode_path(@book, episode) do %>
+          <%= cl_image_tag @book.cover.key, height: 250, width: 200,crop: :fill %>
+        <% end %>
     </div>
-    <!-- Add Pagination -->
-  <div class="swiper-scrollbar"></div>
+    <% end %>
   </div>
-</div>
+
+<% else %>
+  <div class="slider">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% @book.episodes.each do |episode| %>
+          <div class="swiper-slide" style="background: transparent">
+            <%= link_to book_episode_path(@book, episode) do %>
+              <%= cl_image_tag @book.cover.key, height: 250, width: 200,crop: :fill %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <!-- Add Pagination -->
+    <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+<% end %>
 
 
 
@@ -55,15 +68,15 @@
   <% end %>
 </div>
 
-<div class="container">
+<div class="container mt-5">
+  <h3 class="text-center"><%= t('Comment') %></h3>
   <div class="row d-flex justify-content-center">
     <div class="col-lg-6 col-md-6 col-12 text-center">
       <%= simple_form_for([ @book, @review ], html: { class: "review_form" }, remote: true) do |f| %>
         <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
         <%= f.input :content, as: :text %>
-        <%= f.button :submit %>
+        <%= f.button :submit, class: "btn-ghost" %>
       <% end %>
-
     </div>
   </div>
 </div>

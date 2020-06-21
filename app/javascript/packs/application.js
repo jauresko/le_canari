@@ -48,7 +48,12 @@ $('.remove').click(function () {
   $('.bottom').removeClass("clicked");
 });
 
+const br = document.querySelector('.br-widget')
 
+if(br) {
+  br.classList.add("d-flex");
+  br.classList.add("justify-content-center")
+}
 
 
 

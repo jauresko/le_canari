@@ -42,6 +42,7 @@ gem 'devise-i18n', '~> 1.2'
 gem 'simple_token_authentication'
 
 
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
