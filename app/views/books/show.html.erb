@@ -12,11 +12,12 @@
 <% if @book.episodes.count < 4 %>
   <div class="cards">
     <% @book.episodes.each do |episode| %>
-      <div class="card-home justify-content-center">
+      <div class="card-show-episode justify-content-center">
         <%= link_to book_episode_path(@book, episode) do %>
           <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_200,h_250/<%= @book.cover.key %>" alt="<%= @book.name %>">
         <% end %>
-    </div>
+        <p><%= episode.title %></p>
+      </div>
     <% end %>
   </div>
 

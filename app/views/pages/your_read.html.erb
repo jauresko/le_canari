@@ -1,0 +1,10 @@
+<h2 class="text-center" style="font-size: 5rem"> <%= t("YourReading") %></h2>
+<div class="cards">
+  <% @sessions.each do |session| %>
+    <div class="card-home">
+      <%= link_to book_episode_path(session.episode.book, session.episode) do %>
+        <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_200,h_250/<%= session.episode.book.cover.key %>" alt="<%= session.episode.book.name %>">
+      <% end %>
+    </div>
+  <% end %>
+</div>

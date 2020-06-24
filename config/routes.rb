@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /fr|es/ do
     root to: 'pages#home'
     get 'payment', to: 'pages#payment'
+    get 'read', to: 'pages#your_read'
     resources :books do
       resources :episodes do
         resources :sessions

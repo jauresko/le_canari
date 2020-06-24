@@ -28,4 +28,8 @@ class PagesController < ApplicationController
     # end
   end
 
+  def your_read
+    @sessions = current_user.sessions
+  end
+
 end

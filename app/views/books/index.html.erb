@@ -14,7 +14,7 @@
   <% @books.each do |book| %>
     <div class="card-home">
       <%= link_to book_path(book) do %>
-        <%= cl_image_tag book.cover.key, height: 250, width: 200,crop: :fill %>
+        <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_200,h_250/<%= book.cover.key %>" alt="<%= book.name %>">
       <% end %>
     </div>
   <% end %>
