@@ -15,7 +15,7 @@ const store = new paydunya.Store({
   postalAddress: 'C/1143 Agontikon, Cotonou, Bénin',
   websiteURL: 'http://www.lecanari.com',
   logoURL: 'https://res.cloudinary.com/dwustkks4/image/upload/v1589021413/FK/logo_final_png_n3dlcq.png',
-  returnURL: 'http://lecanari/account_credit'
+  returnURL: 'http://lecanari.com/account_credit'
 });
 
 
