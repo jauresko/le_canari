@@ -1,5 +1,5 @@
 <div class="book-container">
-  <%= cl_image_tag @book.cover.key, height: 300, width: 250,crop: :fill %>
+  <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_250,h_300/<%= @book.cover.key %>" alt="<%= @book.name %>">
   <div class="book-show-details">
     <h2><%= @book.name %> </h2>
     <p style="color: green"><%= @book.category %></p>
@@ -14,7 +14,7 @@
     <% @book.episodes.each do |episode| %>
       <div class="card-home justify-content-center">
         <%= link_to book_episode_path(@book, episode) do %>
-          <%= cl_image_tag @book.cover.key, height: 250, width: 200,crop: :fill %>
+          <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_200,h_250/<%= @book.cover.key %>" alt="<%= @book.name %>">
         <% end %>
     </div>
     <% end %>
@@ -27,7 +27,7 @@
         <% @book.episodes.each do |episode| %>
           <div class="swiper-slide" style="background: transparent">
             <%= link_to book_episode_path(@book, episode) do %>
-              <%= cl_image_tag @book.cover.key, height: 250, width: 200,crop: :fill %>
+              <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_200,h_250/<%= @book.cover.key %>" alt="<%= @book.name %>">
             <% end %>
           </div>
         <% end %>
@@ -55,7 +55,7 @@
     <% @book.reviews.each do |review| %>
     <div class="review">
       <% if review.user.photo.key %>
-        <%= cl_image_tag review.user.photo.key, class: "avatar"%>
+        <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_200,h_250/<%= review.user.photo.key %>" alt="<%= review.user.username %>" class="avatar">
       <% else %>
         <%= image_tag 'user.svg' , class: "avatar" %>
       <% end %>
