@@ -27,7 +27,7 @@
               <%= image_tag 'user.svg' , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <% if  current_user.coins == 0%>
-              <%= link_to payment_path %>
+              <p><%= link_to t('TopUp'),payment_path %></p>
             <% else %>
               <p><%= current_user.coins %> <i class="fas fa-coins" style="color: yellow "></i></p>
             <% end %>
