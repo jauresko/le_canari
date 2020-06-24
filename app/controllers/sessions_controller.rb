@@ -8,10 +8,11 @@ class SessionsController < ApplicationController
     @session = Session.new
     @session.user = @user
     @session.episode = @episode
-    if current_user.coins < 100
+    @user.coins = @user.coins - 100
+    if @user.coins < 0
       redirect_to payment_path
     else
-      if @session.save
+      if @session.save && @user.save
         redirect_to book_episode_path(@book, @episode)
       else
         redirect_to book_path(@book)

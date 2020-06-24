@@ -19,7 +19,11 @@
           <%= link_to t("yourRead"), "#", class: "nav-link text-white" %>
         </li>
         <li class="nav-item dropdown">
-          <%= cl_image_tag current_user.photo.key, crop: :fill,class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached? %>
+          <% if current_user.photo.key %>
+            <img src="http://res.cloudinary.com/dwustkks4/image/upload/<%= current_user.photo.key %>" alt="<%= current_user.username %>" class="avatar dropdown-toggle"  id= "navbarDropdown" data-toggle= "dropdown" aria-haspopup= "true" aria-expanded="false">
+          <% else %>
+            <%= image_tag 'user.svg' , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to t("edit"), edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to t("Log out"), destroy_user_session_path, method: :delete, class: "dropdown-item" %>

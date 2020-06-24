@@ -1,6 +1,5 @@
 class EpisodesController < ApplicationController
   layout 'reading'
-  before_action :set_episode
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, :only => :index
 
@@ -9,6 +8,25 @@ class EpisodesController < ApplicationController
   end
 
   def show
+    @episode = Episode.find(params[:id])
+    if @episode.sessions.index { |x| x.user_id == current_user.id } == nil
+      @user = current_user
+      @book = Book.find(params[:book_id])
+      @session = Session.new
+      @session.user = @user
+      @session.episode = @episode
+      @user.coins = @user.coins - 100
+      if @user.coins < 0
+        redirect_to payment_path
+      else
+        if @session.save && @user.save
+          redirect_to book_episode_path(@book, @episode)
+        else
+          redirect_to book_path(@book)
+        end
+      end
+    end
+    authorize(@episode)
   end
 
   def new
@@ -31,11 +49,6 @@ class EpisodesController < ApplicationController
 
 
   private
-
-  def set_episode
-    @episode = Episode.find(params[:id])
-    authorize(@episode)
-  end
 
 
   def episode_params
