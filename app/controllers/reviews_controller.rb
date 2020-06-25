@@ -7,16 +7,14 @@ class ReviewsController < ApplicationController
     @review.book = @book
     @review.user = current_user
     @book.sum_rating = @review.rating + @book.sum_rating
-    raise
     @book.rating_number = @book.rating_number + 1
     @book.average_rating = @book.sum_rating / @book.rating_number
     if @review.save && @book.save
       redirect_to book_path(@book)
     else
       flash[:alert] = "Something went wrong."
-      render 'books/show'
     end
-    authorize(@review)
+    authorize(@review, @book)
   end
 
   private
