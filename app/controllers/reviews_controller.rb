@@ -13,9 +13,8 @@ class ReviewsController < ApplicationController
       redirect_to book_path(@book)
     else
       flash[:alert] = "Something went wrong."
-      render 'books/show'
     end
-    authorize(@review)
+    authorize(@review, @book)
   end
 
   private
