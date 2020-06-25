@@ -15,17 +15,19 @@ const store = new paydunya.Store({
   postalAddress: 'C/1143 Agontikon, Cotonou, Bénin',
   websiteURL: 'http://www.lecanari.com',
   logoURL: 'https://res.cloudinary.com/dwustkks4/image/upload/v1589021413/FK/logo_final_png_n3dlcq.png',
-  returnURL: 'http://lecanari.com/account_credit'
+  returnURL: 'http://www.lecanari.com/account_credit'
 });
 
 
-const paymentButton = document.getElementById('payment-trigger')
+const paymentButton = document.getElementById('payment-trigger');
 
 if (paymentButton) {
   paymentButton.addEventListener('click', () =>{
+    let value = parseInt(document.getElementById('payment-field').value);
+    console.log(value);
     const invoice = new paydunya.CheckoutInvoice(setup, store);
     invoice.description = 'Achats BD';
-    invoice.totalAmount = 200;
+    invoice.totalAmount = value;
 
     invoice.create()
       .then(function () {
@@ -34,6 +36,7 @@ if (paymentButton) {
         invoice.responseText;
         invoice.url; // PAYDUNYA redirect checkout url
         window.location.replace(invoice.url);
+        paymentButton.href = invoice.url;
       })
       .catch(function (e) {
         console.log(e);

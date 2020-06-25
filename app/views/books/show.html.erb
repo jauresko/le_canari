@@ -9,7 +9,7 @@
 </div>
 
 <h2 class="text-center"><i class="fas fa-list-ul"></i> <%= t("Episodes") %></h2>
-<% if @book.episodes.count < 4 %>
+
   <div class="cards">
     <% @book.episodes.each do |episode| %>
       <div class="card-show-episode justify-content-center">
@@ -21,23 +21,6 @@
     <% end %>
   </div>
 
-<% else %>
-  <div class="slider">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <% @book.episodes.each do |episode| %>
-          <div class="swiper-slide" style="background: transparent">
-            <%= link_to book_episode_path(@book, episode) do %>
-              <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_200,h_250/<%= @book.cover.key %>" alt="<%= @book.name %>">
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-      <!-- Add Pagination -->
-    <div class="swiper-scrollbar"></div>
-    </div>
-  </div>
-<% end %>
 
 
 

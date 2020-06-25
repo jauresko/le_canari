@@ -15,7 +15,7 @@ const store = new paydunya.Store({
   postalAddress: 'C/1143 Agontikon, Cotonou, Bénin',
   websiteURL: 'http://www.lecanari.com',
   logoURL: 'https://res.cloudinary.com/dwustkks4/image/upload/v1589021413/FK/logo_final_png_n3dlcq.png',
-  returnURL: 'http://lecanari.com/account_credit'
+  returnURL: 'http://www.lecanari.com/account_credit'
 });
 
 if(document.getElementById('token-paydunya')) {
@@ -32,21 +32,24 @@ invoice.confirm(token)
     // Récupérer le statut du paiement
     // Le statut du paiement peut être soit completed, pending, cancelled
     console.log(invoice.status);
+    console.dir(invoice);
+    console.log(invoice);
 
     console.log(invoice.responseText);  // Réponse du serveur
 
     // Les champs qui suivent seront disponibles si et
     // seulement si le statut du paiement est égal à "completed".
-    fetch(`http://lecanari.com/api/v1/users/${id}`)
+    fetch(`http://www.lecanari.com/api/v1/users/${id}`)
     .then(response => response.json())
     .then((data) => {
       console.log(data);
       console.log(data.coins);
       if (invoice.status === "completed") {
-        fetch(`http://lecanari.com/api/v1/users/${id}`, {
+        fetch(`http://www.lecanari.com/api/v1/users/${id}`, {
           method: 'PATCH',
           body: JSON.stringify({
-            'coins': data.coins + 200
+            'coins': data.coins + invoice.totalAmount,
+            'last_payment_token': token
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -64,7 +67,7 @@ invoice.confirm(token)
     // numéro de téléphone du client en utilisant l'objet suivant
     console.log(invoice.customer); // {name: 'Alioune', phone: '773830274', email: 'aliounebadara@gmail.com'}
 
-    window.location.replace('http://lecanari.com/');
+    // window.location.replace('http://www.lecanari.com/');
     // URL du reçu PDF électronique pour téléchargement
     console.log(invoice.receiptURL); // 'https://app.paydunya.com/sandbox-checkout/receipt/pdf/test_VPGPZNnHOC.pdf'
   })

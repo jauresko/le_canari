@@ -15,6 +15,7 @@ class PagesController < ApplicationController
   def account_credit
     @token = params[:token]
     @authenticity_token = current_user.authentication_token
+    redirect_to root_path if current_user.last_payment_token == params[:token]
     # invoice = Paydunya::Checkout::Invoice.new
     # @result = invoice
     # if invoice.confirm(token)
