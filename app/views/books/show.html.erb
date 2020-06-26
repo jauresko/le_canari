@@ -38,7 +38,7 @@
   <% else %>
     <% @book.reviews.each do |review| %>
     <div class="review">
-      <% if review.user.photo.key %>
+      <% if review.user.photo.attached? %>
         <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_200,h_250/<%= review.user.photo.key %>" alt="<%= review.user.username %>" class="avatar">
       <% else %>
         <%= image_tag 'user.svg' , class: "avatar" %>

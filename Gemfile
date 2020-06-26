@@ -41,7 +41,7 @@ gem 'rails-i18n'
 gem 'devise-i18n', '~> 1.2'
 gem 'simple_token_authentication'
 
-
+gem 'letter_opener', group: :development
 
 group :development, :test do
   gem 'pry-byebug'

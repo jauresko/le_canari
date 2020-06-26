@@ -27,7 +27,7 @@
         </li>
         <li class="nav-item dropdown">
           <div class="text-center">
-            <% if current_user.photo.key %>
+            <% if current_user.photo.attached? %>
               <img src="http://res.cloudinary.com/dwustkks4/image/upload/<%= current_user.photo.key %>" alt="<%= current_user.username %>" class="avatar dropdown-toggle"  id= "navbarDropdown" data-toggle= "dropdown" aria-haspopup= "true" aria-expanded="false">
             <% else %>
               <%= image_tag 'user.svg' , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
