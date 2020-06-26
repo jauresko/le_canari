@@ -41,6 +41,7 @@ gem 'rails-i18n'
 gem 'devise-i18n', '~> 1.2'
 gem 'simple_token_authentication'
 
+gem 'sendgrid-ruby'
 
 
 group :development, :test do
