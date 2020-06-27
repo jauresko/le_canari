@@ -1,5 +1,15 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'liine.io',
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_API_KEY'],
+    authentication: :login
+  }
+  config.action_mailer.default_url_options = { host: 'www.lecanari.com' }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -20,7 +30,6 @@ Rails.application.configure do
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
-  config.action_mailer.default_url_options = { host: 'www.lecanari.com' }
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 

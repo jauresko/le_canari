@@ -1,0 +1,21 @@
+<% if @chatrooms.blank? %>
+  <%= t('chatroom.first') %>
+<% else %>
+<h2 class="text-center"><%= t('Chatrooms') %></h2>
+<% @chatrooms.each do |chatroom| %>
+  <div>
+      <%= link_to chatroom_path(chatroom) do %>
+        <div class="chatroom-index">
+          <div class="chatroom-content">
+            <p><%= chatroom.name %></p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+<% end %>
+
+<% end %>
+
+<div class="text-center">
+  <%= link_to t('chatroom.new') ,new_chatroom_path, class: 'btn-ghost' %>
+</div>

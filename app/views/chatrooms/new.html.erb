@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <h3 class="text-center"><%= t('Chatroom.title') %></h3>
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6 col-md-6 col-12 text-center">
+      <%= simple_form_for @chatroom do |f| %>
+        <%= f.input :name %>
+        <%= f.button :submit, "Submit", class: 'btn-ghost' %>
+      <% end %>
+    </div>
+  </div>
+</div>
