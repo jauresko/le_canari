@@ -1,0 +1,46 @@
+.chatroom-index {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: black;
+  border-radius: 15px;
+  padding: 8px 16px;
+}
+
+.chatroom-index .chatroom-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.chatroom-index p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.chatroom-index small {
+  color: #999999;
+  font-weight: bold;
+}
+
+
+
+
+.star-display img {
+  height: 15px;
+}
+
+@media screen and (min-width: 992px) {
+  .chatroom-index {
+  margin: 0 20vh;
+  min-height: 120px;
+  margin-bottom: 16px;
+}
+}
+
+@media screen and (max-width: 600px) {
+  .chatroom-index {
+  margin: 0 20px;
+  min-height: 120px;
+  margin-bottom: 16px;
+}
+}

@@ -39,6 +39,9 @@ import '../plugins/carousel';
 import '../plugins/algolia_search';
 import '../plugins/paydunya';
 import '../plugins/check_payment';
+import { initChatroomCable } from '../channels/chatroom_channel';
+
+initChatroomCable();
 
 $('.buy').click(function () {
   $('.bottom').addClass("clicked");
@@ -54,6 +57,7 @@ if(br) {
   br.classList.add("d-flex");
   br.classList.add("justify-content-center")
 }
+
 
 
 

@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
+  resources :chatrooms do
+    resources :messages, only: :create
+  end
+
   scope '(:locale)', locale: /fr|es/ do
     root to: 'pages#home'
     get 'payment', to: 'pages#payment'
