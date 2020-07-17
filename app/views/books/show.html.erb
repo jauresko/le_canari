@@ -37,21 +37,21 @@
     Be the first to leave a review for <%= @book.name %>
   <% else %>
     <% @book.reviews.each do |review| %>
-    <div class="review">
-      <% if review.user.photo.attached? %>
-        <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_200,h_250/<%= review.user.photo.key %>" alt="<%= review.user.username %>" class="avatar">
-      <% else %>
-        <%= image_tag 'user.svg' , class: "avatar" %>
-      <% end %>
-      <div class="review-content">
-        <div class="star-display ">
-          <% review.rating.times do  %>
-            <%= image_tag('star.svg') %>
-          <% end %>
+      <div class="review">
+        <% if review.user.photo.attached? %>
+          <img src="http://res.cloudinary.com/dwustkks4/image/upload/c_fill,w_200,h_250/<%= review.user.photo.key %>" alt="<%= review.user.username %>" class="avatar">
+        <% else %>
+          <%= image_tag 'user.svg' , class: "avatar" %>
+        <% end %>
+        <div class="review-content">
+          <div class="star-display ">
+            <% review.rating.times do  %>
+              <%= image_tag('star.svg') %>
+            <% end %>
+          </div>
+          <p><%= review.content %></p>
         </div>
-        <p><%= review.content %></p>
       </div>
-    </div>
     <% end %>
   <% end %>
 </div>

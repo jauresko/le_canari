@@ -21,7 +21,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 gem 'cloudinary'
 gem 'gemoji'
-gem 'redis'
 
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

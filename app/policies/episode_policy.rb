@@ -10,19 +10,19 @@ class EpisodePolicy < ApplicationPolicy
   end
 
   def new?
-    user.admin == true
+    return true
   end
 
   def create?
-    user.admin == true
+    return true
   end
 
   def edit?
-    user.admin == true
+    record.user = current_user
   end
 
   def detroy?
-    user.admin == true
+    record.user = current_user
   end
 
 end

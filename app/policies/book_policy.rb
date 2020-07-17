@@ -14,18 +14,18 @@ class BookPolicy < ApplicationPolicy
   end
 
   def new?
-    user.admin == true
+    return true
   end
 
   def create?
-    user.admin == true
+    return true
   end
 
   def edit?
-    user.admin == true
+    record.user == user
   end
 
   def detroy?
-    user.admin == true
+    record.user == user
   end
 end

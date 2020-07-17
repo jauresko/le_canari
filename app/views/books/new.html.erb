@@ -1,8 +1,28 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">      <!-- Insert form here -->
+      <div class="form-login">
+        <h2><%= t(".sign_up") %></h2>
 
-<%= simple_form_for [@book] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :author %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :cover, as: :file %>
-  <%= f.button :submit, "Submit" %>
-<% end %>
+        <%= simple_form_for [@book] do |f| %>
+
+          <div class="form-inputs">
+          <%= f.input :cover, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '😎 Upload a cover'%>
+          <%= f.input :name %>
+          <%= f.input :author %>
+          <%= f.input :drawer %>
+          <%= f.input :release_date %>
+          <%= f.input :synopsis %>
+          <%= f.input :category, collection: ["Drama", "Fantasy", "Comedy", "Action", "Romance", "Superhero", "Sci-fi", "Thriller", "Supernatural", "Horror", "Informative"]  %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Submit", class:"btn-banner" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

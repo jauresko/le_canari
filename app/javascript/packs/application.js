@@ -59,5 +59,15 @@ if(br) {
 }
 
 
+const verifiedUser = document.querySelectorAll('#verified-user').forEach( (verified) => {
+  if (verified.innerText === 'true') {
+    const classId = verified.parentElement.parentElement.parentElement.id;
+    console.log('.' + classId);
+    const verifying = document.getElementById(classId);
+    verifying.classList.add('right');
+    console.dir(verifying);
+  }
+})
+
 
 
